@@ -1,7 +1,7 @@
 const fs = require('fs/promises');
-const read = async () => {
+const read = async (file) => {
     try{
-        const data = await fs.readFile("./data.txt","utf8");
+        const data = await fs.readFile(file,"utf8");
         console.log(data)
     }catch(error){
         console.log(error.message)
@@ -14,4 +14,11 @@ const write = async () => {
         console.log(error.message)
     }
 }
+
+read('data.txt')
 write();
+
+module.exports = {
+    read,
+    write,
+};
